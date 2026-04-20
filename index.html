@@ -4,673 +4,453 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Mundinho Trans 🔞</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --pink: #FF2D6B;
-    --pink-dark: #C4004F;
-    --pink-glow: rgba(255, 45, 107, 0.25);
-    --purple: #7B2FBE;
-    --purple-light: #A855F7;
-    --bg: #0A0008;
-    --bg2: #12000F;
-    --bg3: #1A0018;
-    --text: #fff;
-    --muted: rgba(255,255,255,0.6);
-    --border: rgba(255, 45, 107, 0.2);
-    --gold: #FFD166;
-  }
-
-  html { scroll-behavior: smooth; font-size: 16px; }
-
-  /* touch tap highlight off */
-  * { -webkit-tap-highlight-color: transparent; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ─── NOISE TEXTURE ─── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
-  section { position: relative; z-index: 1; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5rem 1.5rem 4rem;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(123,47,190,0.35) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,45,107,0.2) 0%, transparent 60%);
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,45,107,0.12);
-    border: 1px solid rgba(255,45,107,0.4);
-    border-radius: 100px;
-    padding: 6px 16px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #FF8AAF;
-    letter-spacing: 0.04em;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    max-width: 860px;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #fff 30%, #FF8AAF 60%, var(--purple-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero p {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--muted);
-    max-width: 580px;
-    margin: 0 auto 2.5rem;
-  }
-
-  /* ─── BOTÃO CTA ─── */
-  .btn-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 1rem 2.5rem;
-    border-radius: 100px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 0 30px var(--pink-glow), 0 4px 20px rgba(0,0,0,0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
-    letter-spacing: 0.01em;
-  }
-
-  .btn-cta:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 0 50px rgba(255,45,107,0.45), 0 8px 30px rgba(0,0,0,0.5);
-  }
-
-  .btn-cta .arrow { font-size: 1.2em; }
-
-  /* ─── CARROSSEL DE VÍDEO ─── */
-  .video-section {
-    padding: 4rem 1.5rem;
-    max-width: 980px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    text-align: center;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--pink);
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: var(--bg3);
-    box-shadow: 0 0 60px rgba(255,45,107,0.1);
-  }
-
-  .carousel-track {
-    display: flex;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .carousel-slide {
-    min-width: 100%;
-    aspect-ratio: 16/9;
-    position: relative;
-    background: var(--bg2);
-  }
-
-  .carousel-slide video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .carousel-slide .placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--bg2), var(--bg3));
-    color: var(--muted);
-    font-size: 2rem;
-    gap: 1rem;
-  }
-
-  .placeholder-text {
-    font-size: 0.9rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-  }
-
-  .carousel-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 1.2rem;
-    background: rgba(0,0,0,0.5);
-  }
-
-  .nav-btn {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: rgba(255,45,107,0.1);
-    color: #fff;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-
-  .nav-btn:hover { background: rgba(255,45,107,0.3); }
-
-  .dots { display: flex; gap: 8px; }
-
-  .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .dot.active { background: var(--pink); transform: scale(1.3); }
-
-  /* ─── O QUE VOCÊ VAI RECEBER ─── */
-  .benefits-section {
-    padding: 5rem 1.5rem;
-    max-width: 980px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    line-height: 1.15;
-  }
-
-  .section-title span { color: var(--pink); }
-
-  .section-sub {
-    text-align: center;
-    color: var(--muted);
-    margin-bottom: 3rem;
-    font-size: 1rem;
-  }
-
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-  }
-
-  .benefit-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,45,107,0.04));
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.5rem;
-    transition: border-color 0.3s, transform 0.2s;
-  }
-
-  .benefit-card:hover {
-    border-color: rgba(255,45,107,0.5);
-    transform: translateY(-3px);
-  }
-
-  .benefit-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .benefit-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    color: #fff;
-  }
-
-  .benefit-desc {
-    font-size: 0.875rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* ─── DEPOIMENTOS ─── */
-  .testimonials-section {
-    padding: 5rem 1.5rem;
-    background: linear-gradient(180deg, transparent, rgba(123,47,190,0.08), transparent);
-    max-width: 980px;
-    margin: 0 auto;
-  }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 16px;
-    margin-top: 3rem;
-  }
-
-  .testimonial-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 1.5rem;
-  }
-
-  .stars {
-    color: var(--gold);
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-    letter-spacing: 2px;
-  }
-
-  .testimonial-text {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.65;
-    margin-bottom: 1rem;
-    font-style: italic;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .avatar {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--pink), var(--purple-light));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .author-info { font-size: 0.85rem; }
-  .author-name { font-weight: 600; color: #fff; }
-  .author-tag { color: var(--muted); font-size: 0.8rem; }
-
-  /* ─── FAQ ─── */
-  .faq-section {
-    padding: 5rem 1.5rem;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    padding: 1.25rem 0;
-  }
-
-  .faq-question {
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    user-select: none;
-    color: #fff;
-  }
-
-  .faq-icon {
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-    color: var(--pink);
-    transition: transform 0.3s;
-  }
-
-  .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-  .faq-answer {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.2s;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 300px;
-    padding-top: 0.75rem;
-  }
-
-  /* ─── OFERTA / PREÇO ─── */
-  .offer-section {
-    padding: 5rem 1.5rem 6rem;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .offer-card {
-    background: linear-gradient(135deg, rgba(255,45,107,0.08), rgba(123,47,190,0.12));
-    border: 1px solid rgba(255,45,107,0.35);
-    border-radius: 24px;
-    padding: 3rem 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .offer-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(255,45,107,0.06) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .offer-tag {
-    display: inline-block;
-    background: var(--pink);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-  }
-
-  .offer-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .offer-desc {
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
-  }
-
-  .price-block {
-    margin-bottom: 2rem;
-  }
-
-  .price-old {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.35);
-    text-decoration: line-through;
-    margin-bottom: 4px;
-  }
-
-  .price-main {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .price-main sup {
-    font-size: 1.5rem;
-    vertical-align: super;
-    font-weight: 700;
-    color: var(--pink);
-  }
-
-  .price-note {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-
-  .checklist {
-    list-style: none;
-    text-align: left;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .checklist li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
-  }
-
-  .check-icon {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: rgba(255,45,107,0.15);
-    border: 1px solid rgba(255,45,107,0.4);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem;
-    flex-shrink: 0;
-    color: var(--pink);
-  }
-
-  .guarantee {
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  /* ─── GARANTIA ─── */
-  .guarantee-section {
-    padding: 4rem 1.5rem;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .guarantee-box {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .guarantee-badge {
-    font-size: 3.5rem;
-  }
-
-  .guarantee-box h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-  }
-
-  .guarantee-box p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    max-width: 480px;
-    line-height: 1.7;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.25);
-  }
-
-  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
-  footer a:hover { color: var(--pink); }
-
-  /* ─── DIVIDER ─── */
-  .divider {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--pink), var(--purple-light));
-    border-radius: 100px;
-    margin: 0 auto 1rem;
-  }
-
-  /* ─── SCROLL ANIMATIONS ─── */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* ─── MOBILE FIRST ─── */
-  @media (max-width: 768px) {
-    .hero { padding: 4rem 1.25rem 3rem; }
-    .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
-    .hero p { font-size: 1rem; }
-
-    .btn-cta { font-size: 1rem; padding: 0.9rem 2rem; width: 100%; justify-content: center; }
-
-    .video-section { padding: 2.5rem 1rem; }
-
-    .benefits-section,
-    .testimonials-section,
-    .faq-section,
-    .offer-section,
-    .guarantee-section { padding: 3rem 1rem; }
-
-    .benefits-grid { grid-template-columns: 1fr; gap: 12px; }
-    .benefit-card { padding: 1.25rem; }
-
-    .testimonials-grid { grid-template-columns: 1fr; gap: 12px; }
-
-    .offer-card { padding: 1.75rem 1.25rem; }
-    .price-main { font-size: 3rem; }
-
-    .section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-
-    .carousel-nav { padding: 1rem; }
-    .nav-btn { width: 36px; height: 36px; }
-
-    .checklist li { font-size: 0.875rem; }
-
-    .guarantee-box { padding: 2rem 1.25rem; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* { -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --pink: #FF2D6B;
+  --pink-dark: #C4004F;
+  --pink-glow: rgba(255,45,107,0.25);
+  --purple-light: #A855F7;
+  --bg: #0A0008;
+  --bg2: #12000F;
+  --bg3: #1A0018;
+  --muted: rgba(255,255,255,0.55);
+  --border: rgba(255,45,107,0.2);
+  --gold: #FFD166;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 3.5rem 1.25rem;
+}
+
+.divider {
+  width: 50px; height: 2px;
+  background: linear-gradient(90deg, var(--pink), var(--purple-light));
+  border-radius: 100px;
+  margin: 0 auto 1rem;
+}
+
+.section-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.section-title span { color: var(--pink); }
+
+.section-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 1.25rem 3.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(123,47,190,0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 40% at 85% 90%, rgba(255,45,107,0.22) 0%, transparent 60%);
+}
+
+/* imagens decorativas */
+.hero-img {
+  position: absolute;
+  border-radius: 14px;
+  object-fit: cover;
+  filter: blur(4px) saturate(0.6) brightness(0.7);
+  opacity: 0.14;
+  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+.hero-img-1 {
+  width: 40vw; max-width: 165px;
+  height: 55vw; max-height: 230px;
+  top: 3%; left: -5%;
+  transform: rotate(-9deg);
+}
+.hero-img-2 {
+  width: 38vw; max-width: 155px;
+  height: 52vw; max-height: 215px;
+  top: 2%; right: -4%;
+  transform: rotate(8deg);
+}
+.hero-img-3 {
+  width: 42vw; max-width: 175px;
+  height: 55vw; max-height: 230px;
+  bottom: 1%; left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  opacity: 0.08;
+}
+.hero > :not(.hero-img) { position: relative; z-index: 1; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,45,107,0.12);
+  border: 1px solid rgba(255,45,107,0.4);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #FF8AAF;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 9vw, 4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  background: linear-gradient(135deg, #fff 30%, #FF8AAF 60%, var(--purple-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+  color: var(--muted);
+  margin-bottom: 2rem;
+  max-width: 320px;
+}
+
+.btn-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 28px var(--pink-glow), 0 4px 18px rgba(0,0,0,0.4);
+  transition: transform 0.18s;
+  width: 100%;
+  max-width: 340px;
+  letter-spacing: 0.03em;
+}
+.btn-cta:active { transform: scale(0.97); }
+
+/* ── VÍDEO ── */
+.video-section { padding: 2rem 1.25rem 3rem; }
+
+.carousel-wrapper {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  aspect-ratio: 9/16;
+  background: var(--bg2);
+}
+
+.carousel-slide video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: rgba(255,255,255,0.2);
+}
+.placeholder span:first-child { font-size: 2.5rem; }
+.placeholder-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 1rem;
+  background: rgba(0,0,0,0.55);
+}
+
+.nav-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(255,45,107,0.1);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-btn:active { background: rgba(255,45,107,0.35); }
+
+.dots { display: flex; gap: 8px; }
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.dot.active { background: var(--pink); transform: scale(1.35); }
+
+/* ── BENEFÍCIOS ── */
+.benefits-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,45,107,0.04));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.benefit-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+.benefit-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+.benefit-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+/* ── DEPOIMENTOS ── */
+.testimonials-section {
+  background: linear-gradient(180deg, transparent, rgba(123,47,190,0.07), transparent);
+}
+
+.testimonials-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 0.6rem; letter-spacing: 2px; }
+.testimonial-text {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.testimonial-author { display: flex; align-items: center; gap: 10px; }
+.avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--purple-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
+}
+.author-name { font-size: 0.85rem; font-weight: 600; }
+.author-tag { font-size: 0.75rem; color: var(--muted); }
+
+/* ── FAQ ── */
+.faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1.1rem 0; }
+.faq-question {
+  font-size: 0.95rem; font-weight: 500; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  user-select: none;
+}
+.faq-icon {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0; color: var(--pink);
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  font-size: 0.85rem; color: var(--muted); line-height: 1.7;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.2s;
+}
+.faq-item.open .faq-answer { max-height: 300px; padding-top: 0.7rem; }
+
+/* ── OFERTA ── */
+#oferta { padding: 2rem 1.25rem 4rem; }
+
+.offer-card {
+  background: linear-gradient(135deg, rgba(255,45,107,0.08), rgba(123,47,190,0.12));
+  border: 1px solid rgba(255,45,107,0.35);
+  border-radius: 22px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.offer-tag {
+  display: inline-block;
+  background: var(--pink); color: #fff;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 1.25rem;
+}
+
+.offer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 700; margin-bottom: 0.4rem;
+}
+
+.offer-desc { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.75rem; }
+
+.price-old { font-size: 0.9rem; color: rgba(255,255,255,0.3); text-decoration: line-through; margin-bottom: 4px; }
+.price-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem; font-weight: 900; line-height: 1; margin-bottom: 6px;
+}
+.price-main sup { font-size: 1.4rem; color: var(--pink); vertical-align: super; }
+.price-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.75rem; }
+
+.checklist {
+  list-style: none; text-align: left;
+  margin-bottom: 1.75rem;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.checklist li { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: rgba(255,255,255,0.85); }
+.check-icon {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(255,45,107,0.15); border: 1px solid rgba(255,45,107,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; flex-shrink: 0; color: var(--pink);
+}
+
+.secure-note {
+  margin-top: 1.25rem; font-size: 0.75rem; color: rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+
+/* ── GARANTIA ── */
+.guarantee-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px; padding: 2rem 1.25rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;
+}
+.guarantee-badge { font-size: 3rem; }
+.guarantee-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+.guarantee-box p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 1.25rem; text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.75rem; color: rgba(255,255,255,0.22);
+}
+footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+/* ── FADE IN ── */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-in.visible { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     SEÇÃO 1 — HERO
-══════════════════════════════════════════ -->
+<!-- 1 — HERO -->
 <section class="hero">
+  <img class="hero-img hero-img-1" src="https://metodotripe.shop/wp-content/uploads/2026/04/242350.jpg" alt="">
+  <img class="hero-img hero-img-2" src="https://metodotripe.shop/wp-content/uploads/2026/04/242351.jpg" alt="">
+  <img class="hero-img hero-img-3" src="https://metodotripe.shop/wp-content/uploads/2026/04/242356.jpg" alt="">
   <div class="badge">🔞 +18 · Conteúdo exclusivo</div>
-  <h1>O lugar onde o desejo<br>não tem limite</h1>
-  <p>Acesse agora o grupo <strong>Mundinho Trans</strong> e descubra um universo de conteúdo quente, exclusivo e sem censura.</p>
-  <a href="#oferta" class="btn-cta">
-    QUERO ENTRAR AGORA <span class="arrow">→</span>
-  </a>
+  <h1>O lugar onde o desejo não tem limite</h1>
+  <p>Acesse agora o <strong>Mundinho Trans</strong> e descubra um universo sem censura.</p>
+  <a href="#oferta" class="btn-cta">QUERO ENTRAR AGORA →</a>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SEÇÃO 2 — CARROSSEL DE VÍDEO
-══════════════════════════════════════════ -->
+<!-- 2 — VÍDEO -->
 <section class="video-section fade-in">
   <p class="section-label">🎬 Prévia exclusiva</p>
   <div class="carousel-wrapper">
     <div class="carousel-track" id="carouselTrack">
-
-      <!-- SLIDE 1 — vídeo real -->
       <div class="carousel-slide">
-        <video controls preload="metadata" poster="">
+        <video controls playsinline preload="metadata">
           <source src="https://metodotripe.shop/wp-content/uploads/2026/04/98.mp4" type="video/mp4">
         </video>
       </div>
-
-      <!-- SLIDES PLACEHOLDER — troque pelo seu conteúdo -->
       <div class="carousel-slide">
         <div class="placeholder">
           <span>🎥</span>
           <span class="placeholder-text">Vídeo 2 — substitua aqui</span>
         </div>
       </div>
-
       <div class="carousel-slide">
         <div class="placeholder">
           <span>🎥</span>
           <span class="placeholder-text">Vídeo 3 — substitua aqui</span>
         </div>
       </div>
-
     </div>
-
     <div class="carousel-nav">
       <button class="nav-btn" id="prevBtn">‹</button>
       <div class="dots" id="dots"></div>
@@ -679,160 +459,107 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SEÇÃO 3 — O QUE VOCÊ VAI RECEBER
-══════════════════════════════════════════ -->
-<section class="benefits-section fade-in">
+<!-- 3 — O QUE RECEBE -->
+<section class="fade-in">
   <div class="divider"></div>
   <h2 class="section-title">O que você vai <span>receber</span></h2>
-  <p class="section-sub">Tudo isso com acesso imediato após o pagamento</p>
-
+  <p class="section-sub">Acesso imediato após o pagamento</p>
   <div class="benefits-grid">
     <div class="benefit-card">
       <span class="benefit-icon">📱</span>
-      <div class="benefit-title">Acesso ao grupo VIP</div>
-      <div class="benefit-desc">Entre no grupo exclusivo e acesse todo o conteúdo direto no seu celular, 24h por dia.</div>
+      <div><div class="benefit-title">Acesso ao grupo VIP</div><div class="benefit-desc">Entre no grupo exclusivo e acesse todo o conteúdo direto no celular, 24h por dia.</div></div>
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">🎬</span>
-      <div class="benefit-title">Vídeos exclusivos</div>
-      <div class="benefit-desc">Conteúdo +18 selecionado, sem censura, atualizado regularmente pelos criadores.</div>
+      <div><div class="benefit-title">Vídeos exclusivos</div><div class="benefit-desc">Conteúdo +18 selecionado, sem censura, atualizado regularmente.</div></div>
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">📸</span>
-      <div class="benefit-title">Fotos & reels quentes</div>
-      <div class="benefit-desc">Galeria completa de conteúdo visual exclusivo que você não encontra em outro lugar.</div>
+      <div><div class="benefit-title">Fotos & reels quentes</div><div class="benefit-desc">Galeria completa que você não acha em outro lugar.</div></div>
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">🔔</span>
-      <div class="benefit-title">Atualizações diárias</div>
-      <div class="benefit-desc">Novidades postadas todo dia. Nunca falta conteúdo fresco para você aproveitar.</div>
+      <div><div class="benefit-title">Atualizações diárias</div><div class="benefit-desc">Novidades postadas todo dia. Nunca falta conteúdo fresco.</div></div>
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">🔒</span>
-      <div class="benefit-title">100% privado</div>
-      <div class="benefit-desc">Sua privacidade protegida. Nenhum dado é compartilhado. Acesso discreto e seguro.</div>
+      <div><div class="benefit-title">100% privado</div><div class="benefit-desc">Sua privacidade protegida. Acesso discreto e seguro.</div></div>
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">💬</span>
-      <div class="benefit-title">Comunidade ativa</div>
-      <div class="benefit-desc">Interaja com outros membros. Ambiente sem julgamentos e totalmente libertador.</div>
+      <div><div class="benefit-title">Comunidade ativa</div><div class="benefit-desc">Ambiente sem julgamentos e totalmente libertador.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SEÇÃO 4 — DEPOIMENTOS
-══════════════════════════════════════════ -->
+<!-- 4 — DEPOIMENTOS -->
 <section class="testimonials-section fade-in">
-  <div style="text-align:center;">
-    <div class="divider"></div>
-    <h2 class="section-title">O que <span>dizem</span> os membros</h2>
-    <p class="section-sub">Depoimentos reais de quem já está no grupo</p>
-  </div>
-
+  <div class="divider"></div>
+  <h2 class="section-title">O que <span>dizem</span></h2>
+  <p class="section-sub">Membros reais do grupo</p>
   <div class="testimonials-grid">
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui — mostre resultados, sentimentos, impacto]"</p>
+      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
       <div class="testimonial-author">
         <div class="avatar">A1</div>
-        <div class="author-info">
-          <div class="author-name">Membro VIP</div>
-          <div class="author-tag">Membro há 2 meses</div>
-        </div>
+        <div><div class="author-name">Membro VIP</div><div class="author-tag">há 2 meses</div></div>
       </div>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui — seja específico, genuíno e impactante]"</p>
+      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
       <div class="testimonial-author">
         <div class="avatar">A2</div>
-        <div class="author-info">
-          <div class="author-name">Membro VIP</div>
-          <div class="author-tag">Membro há 1 mês</div>
-        </div>
+        <div><div class="author-name">Membro VIP</div><div class="author-tag">há 1 mês</div></div>
       </div>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui — quanto mais específico, mais converte]"</p>
+      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
       <div class="testimonial-author">
         <div class="avatar">A3</div>
-        <div class="author-info">
-          <div class="author-name">Membro VIP</div>
-          <div class="author-tag">Membro há 3 semanas</div>
-        </div>
+        <div><div class="author-name">Membro VIP</div><div class="author-tag">há 3 semanas</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SEÇÃO 5 — FAQ
-══════════════════════════════════════════ -->
-<section class="faq-section fade-in">
-  <div style="text-align:center; margin-bottom: 3rem;">
-    <div class="divider"></div>
-    <h2 class="section-title">Perguntas <span>frequentes</span></h2>
-  </div>
-
+<!-- 5 — FAQ -->
+<section class="fade-in">
+  <div class="divider"></div>
+  <h2 class="section-title" style="margin-bottom:1.75rem;">Perguntas <span>frequentes</span></h2>
   <div class="faq-item">
-    <div class="faq-question">
-      Como acesso após o pagamento?
-      <span class="faq-icon">+</span>
-    </div>
-    <div class="faq-answer">O acesso é imediato. Após confirmar o pagamento, você recebe o link de entrada direto no seu WhatsApp ou e-mail em até [X minutos].</div>
+    <div class="faq-question">Como acesso após o pagamento? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">O acesso é imediato. Após confirmar o pagamento você recebe o link direto no WhatsApp ou e-mail.</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      O pagamento é seguro?
-      <span class="faq-icon">+</span>
-    </div>
-    <div class="faq-answer">Sim! Utilizamos plataformas de pagamento criptografadas e certificadas. Seus dados bancários nunca passam por nós.</div>
+    <div class="faq-question">O pagamento é seguro? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">Sim! Utilizamos plataformas de pagamento criptografadas e certificadas. Seus dados nunca passam por nós.</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      Vou ter acesso vitalício?
-      <span class="faq-icon">+</span>
-    </div>
-    <div class="faq-answer">[Descreva aqui se é acesso vitalício, mensal ou por período determinado. Seja claro e transparente com o comprador.]</div>
+    <div class="faq-question">Vou ter acesso vitalício? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">[Descreva aqui se é vitalício, mensal ou por período determinado.]</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      Minha compra será discreta na fatura?
-      <span class="faq-icon">+</span>
-    </div>
-    <div class="faq-answer">Sim! O nome que aparece na sua fatura é discreto e não identifica o tipo de conteúdo adquirido.</div>
+    <div class="faq-question">Minha compra será discreta na fatura? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">Sim! O nome na fatura é discreto e não identifica o conteúdo adquirido.</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      Posso cancelar quando quiser?
-      <span class="faq-icon">+</span>
-    </div>
-    <div class="faq-answer">[Descreva sua política de cancelamento de forma clara aqui.]</div>
+    <div class="faq-question">Posso cancelar quando quiser? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">[Descreva sua política de cancelamento aqui.]</div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SEÇÃO 6 — OFERTA / PREÇO
-══════════════════════════════════════════ -->
-<section class="offer-section fade-in" id="oferta">
+<!-- 6 — OFERTA -->
+<section id="oferta" class="fade-in">
   <div class="offer-card">
     <span class="offer-tag">🔥 Oferta por tempo limitado</span>
     <h2 class="offer-title">Mundinho Trans VIP</h2>
-    <p class="offer-desc">Acesso completo a todo o conteúdo exclusivo do grupo</p>
-
-    <div class="price-block">
-      <div class="price-old">De R$ 97,00</div>
-      <div class="price-main"><sup>R$</sup> 37</div>
-      <div class="price-note">ou 12x de R$ 3,90 • Pagamento único</div>
-    </div>
-
+    <p class="offer-desc">Acesso completo a todo o conteúdo exclusivo</p>
+    <div class="price-old">De R$ 97,00</div>
+    <div class="price-main"><sup>R$</sup>37</div>
+    <p class="price-note">ou 12x de R$ 3,90 · Pagamento único</p>
     <ul class="checklist">
       <li><span class="check-icon">✓</span> Acesso imediato ao grupo VIP</li>
       <li><span class="check-icon">✓</span> Vídeos e fotos exclusivos +18</li>
@@ -840,85 +567,67 @@
       <li><span class="check-icon">✓</span> Comunidade ativa e sem censura</li>
       <li><span class="check-icon">✓</span> Acesso 100% discreto e privado</li>
     </ul>
-
-    <a href="#" class="btn-cta" style="width:100%; justify-content:center; font-size:1rem;">
-      QUERO ACESSO AGORA <span class="arrow">→</span>
-    </a>
-
-    <div class="guarantee">🔒 Compra 100% segura e discreta</div>
+    <a href="#" class="btn-cta">QUERO ACESSO AGORA →</a>
+    <div class="secure-note">🔒 Compra 100% segura e discreta</div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SEÇÃO 7 — GARANTIA
-══════════════════════════════════════════ -->
-<section class="guarantee-section fade-in">
+<!-- 7 — GARANTIA -->
+<section class="fade-in">
   <div class="guarantee-box">
     <div class="guarantee-badge">🛡️</div>
     <h3>Garantia de [X] dias</h3>
-    <p>Se por qualquer motivo você não ficar satisfeito, basta nos enviar uma mensagem dentro do prazo e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+    <p>Se por qualquer motivo não ficar satisfeito, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Mundinho Trans · Conteúdo exclusivo para maiores de 18 anos</p>
-  <p style="margin-top:8px;">
-    <a href="#">Política de Privacidade</a> · 
-    <a href="#">Termos de Uso</a> · 
-    <a href="#">Suporte</a>
-  </p>
+  <p>© 2026 Mundinho Trans · Apenas para maiores de 18 anos</p>
+  <p style="margin-top:6px;"><a href="#">Privacidade</a> · <a href="#">Termos</a> · <a href="#">Suporte</a></p>
 </footer>
 
 <script>
-  // ─── SWIPE TOUCH CARROSSEL ───
-  let startX = 0;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+const track = document.getElementById('carouselTrack');
+const slides = track.querySelectorAll('.carousel-slide');
+const dotsEl = document.getElementById('dots');
+let cur = 0;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  dotsEl.appendChild(d);
+});
+
+function goTo(n) {
+  cur = (n + slides.length) % slides.length;
+  track.style.transform = `translateX(-${cur * 100}%)`;
+  dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+}
+
+document.getElementById('prevBtn').onclick = () => goTo(cur - 1);
+document.getElementById('nextBtn').onclick = () => goTo(cur + 1);
+
+let sx = 0;
+track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', e => {
+  const diff = sx - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
+});
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
   });
+});
 
-  // ─── CARROSSEL ───
-  const track = document.getElementById('carouselTrack');
-  const slides = track.querySelectorAll('.carousel-slide');
-  const dotsContainer = document.getElementById('dots');
-  let current = 0;
-
-  slides.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.onclick = () => goTo(i);
-    dotsContainer.appendChild(d);
-  });
-
-  function goTo(n) {
-    current = (n + slides.length) % slides.length;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  document.getElementById('prevBtn').onclick = () => goTo(current - 1);
-  document.getElementById('nextBtn').onclick = () => goTo(current + 1);
-
-  // ─── FAQ ACCORDION ───
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-question').addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-
-  // ─── SCROLL FADE IN ───
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>
