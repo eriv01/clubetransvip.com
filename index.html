@@ -403,25 +403,27 @@ section {
 #oferta { padding: 2rem 1.25rem 4rem; }
 
 .offer-card {
-  background: linear-gradient(135deg, rgba(255,45,107,0.08), rgba(123,47,190,0.12));
-  border: 1px solid rgba(255,45,107,0.35);
-  border-radius: 22px;
-  padding: 2rem 1.5rem;
+  background: linear-gradient(160deg, rgba(255,45,107,0.1) 0%, rgba(123,47,190,0.14) 50%, rgba(255,45,107,0.06) 100%);
+  border: 1px solid rgba(255,45,107,0.4);
+  border-radius: 24px;
+  padding: 2.25rem 1.5rem;
   text-align: center;
+  box-shadow: 0 0 60px rgba(255,45,107,0.1), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .offer-tag { display: inline-block; background: var(--pink); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 1.25rem; }
-.offer-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 0.4rem; }
-.offer-desc { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.75rem; }
+.offer-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; margin-bottom: 0.4rem; }
+.offer-desc { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.25rem; }
 .price-old { font-size: 0.9rem; color: rgba(255,255,255,0.3); text-decoration: line-through; margin-bottom: 4px; }
-.price-main { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 900; line-height: 1; margin-bottom: 6px; }
-.price-main sup { font-size: 1.4rem; color: var(--pink); vertical-align: super; }
-.price-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.75rem; }
-
-.checklist { list-style: none; text-align: left; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: 10px; }
-.checklist li { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: rgba(255,255,255,0.85); }
-.check-icon { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,45,107,0.15); border: 1px solid rgba(255,45,107,0.4); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0; color: var(--pink); }
-.secure-note { margin-top: 1.25rem; font-size: 0.75rem; color: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; gap: 5px; }
+.price-main { font-family: 'Playfair Display', serif; font-size: 5.5rem; font-weight: 900; line-height: 1; margin-bottom: 6px; color: #fff; }
+.price-main sup { font-size: 1.8rem; color: var(--pink); vertical-align: super; }
+.price-note { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 0; }
+.offer-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,45,107,0.35), transparent); margin: 1.5rem 0; }
+.checklist { list-style: none; text-align: left; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: 12px; }
+.checklist li { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.4; }
+.check-icon { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,45,107,0.18); border: 1px solid rgba(255,45,107,0.55); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0; color: var(--pink); font-weight: 700; }
+.btn-cta-offer { font-size: 1.05rem; padding: 1.15rem 1.5rem; letter-spacing: 0.04em; box-shadow: 0 0 40px rgba(255,45,107,0.5), 0 6px 24px rgba(0,0,0,0.5); }
+.secure-note { margin-top: 1.25rem; font-size: 0.72rem; color: rgba(255,255,255,0.28); display: flex; align-items: center; justify-content: center; gap: 5px; flex-wrap: wrap; text-align: center; line-height: 1.8; }
 
 /* ── GARANTIA ── */
 .guarantee-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; padding: 2rem 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
@@ -627,20 +629,29 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 <section id="oferta" class="fade-in">
   <div class="offer-card">
     <span class="offer-tag">🔥 Oferta por tempo limitado</span>
-    <h2 class="offer-title">Mundinho Trans VIP</h2>
-    <p class="offer-desc">Acesso completo a todo o conteúdo exclusivo</p>
+    <h2 class="offer-title">Club Mundinho Trans <span style="color:var(--pink)">VIP</span></h2>
+    <p class="offer-desc">Acesso completo e vitalício a tudo — paga uma vez só</p>
+
     <div class="price-old">De R$ 97,00</div>
-    <div class="price-main"><sup>R$</sup>37</div>
-    <p class="price-note">ou 12x de R$ 3,90 · Pagamento único</p>
+    <div class="price-main"><sup>R$</sup>17</div>
+    <p class="price-note">Pagamento único · Acesso eterno · Sem mensalidade</p>
+
+    <div class="offer-divider"></div>
+
     <ul class="checklist">
-      <li><span class="check-icon">✓</span> Acesso imediato ao grupo VIP</li>
-      <li><span class="check-icon">✓</span> Vídeos e fotos exclusivos +18</li>
-      <li><span class="check-icon">✓</span> Atualizações diárias de conteúdo</li>
-      <li><span class="check-icon">✓</span> Comunidade ativa e sem censura</li>
-      <li><span class="check-icon">✓</span> Acesso 100% discreto e privado</li>
+      <li><span class="check-icon">✓</span> +3.000 vídeos exclusivos no grupo privado</li>
+      <li><span class="check-icon">✓</span> Acesso vitalício — paga uma vez e é seu para sempre</li>
+      <li><span class="check-icon">✓</span> 7 chamadas de vídeo por mês com as modelos (opcional)</li>
+      <li><span class="check-icon">✓</span> App oculto — invisível no seu celular</li>
+      <li><span class="check-icon">✓</span> Assista os vídeos sem internet</li>
+      <li><span class="check-icon">✓</span> Novos conteúdos toda semana</li>
+      <li><span class="check-icon">✓</span> Bate-papo ao vivo com as pauzudas</li>
     </ul>
-    <a href="#" class="btn-cta">QUERO ACESSO AGORA →</a>
-    <div class="secure-note">🔒 Compra 100% segura e discreta</div>
+
+    <!-- LINK CHECKOUT: substitua o href="#" pelo link do seu checkout -->
+    <a href="#" class="btn-cta btn-cta-offer">QUERO ACESSO AGORA POR R$17 →</a>
+
+    <div class="secure-note">🔒 Compra 100% segura · Discreta na fatura · Acesso imediato</div>
   </div>
 </section>
 
