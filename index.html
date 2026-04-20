@@ -244,75 +244,56 @@ section {
 .btn-cta:active { transform: scale(0.97); }
 
 /* ── VÍDEO ── */
-.video-section { padding: 2rem 1.25rem 3rem; }
+.video-section { padding: 1.5rem 0 2.5rem; }
+.video-section .section-label { padding: 0 1.25rem; }
 
-.carousel-wrapper {
+.vstrip-outer {
   overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--bg3);
+  position: relative;
+  width: 100%;
+  cursor: grab;
+  user-select: none;
 }
+.vstrip-outer:active { cursor: grabbing; }
 
-.carousel-track {
+.vstrip-track {
   display: flex;
-  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  gap: 10px;
+  padding: 0 1.25rem;
   will-change: transform;
 }
 
-.carousel-slide {
-  min-width: 100%;
+.vstrip-card {
+  flex-shrink: 0;
+  width: calc((100vw - 2.5rem - 20px) / 3);
   aspect-ratio: 9/16;
-  background: var(--bg2);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  position: relative;
 }
 
-.carousel-slide video {
+.vstrip-card video {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
-.placeholder {
-  width: 100%; height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  color: rgba(255,255,255,0.2);
-}
-.placeholder span:first-child { font-size: 2.5rem; }
-.placeholder-text { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-
-.carousel-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 1rem;
-  background: rgba(0,0,0,0.55);
-}
-
-.nav-btn {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: rgba(255,45,107,0.1);
+.vstrip-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 5.5vw, 2rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0 1.25rem;
+  margin-bottom: 1rem;
   color: #fff;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
 }
-.nav-btn:active { background: rgba(255,45,107,0.35); }
+.vstrip-headline span { color: var(--pink); }
 
-.dots { display: flex; gap: 8px; }
-.dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-.dot.active { background: var(--pink); transform: scale(1.35); }
+.video-section .section-label { margin-bottom: 0.75rem; }
 
 /* ── BENEFÍCIOS ── */
 .benefits-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 2rem; }
@@ -504,33 +485,28 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
     <div class="hero-logo-sub">✦ VIP ✦</div>
   </div>
 
-  <div class="badge">🔞 +18 · Conteúdo exclusivo</div>
-  <h1>O lugar onde o desejo não tem limite</h1>
-  <p>Acesse agora o <strong>Mundinho Trans</strong> e descubra um universo sem censura.</p>
+
+  <h1>As gostosas mais pauzudas do Brasil exclusivas no seu celular</h1>
+
   <a href="#oferta" class="btn-cta">QUERO ENTRAR AGORA →</a>
 </section>
 
 <!-- 2 — VÍDEO -->
 <section class="video-section fade-in">
+  <h2 class="vstrip-headline">Algumas das <span>pauzudas</span> do grupinho <span>VIP</span> 🔥</h2>
   <p class="section-label">🎬 Prévia exclusiva</p>
-  <div class="carousel-wrapper">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide">
-        <video controls playsinline preload="metadata">
-          <source src="https://metodotripe.shop/wp-content/uploads/2026/04/98.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="carousel-slide">
-        <div class="placeholder"><span>🎥</span><span class="placeholder-text">Vídeo 2 — substitua aqui</span></div>
-      </div>
-      <div class="carousel-slide">
-        <div class="placeholder"><span>🎥</span><span class="placeholder-text">Vídeo 3 — substitua aqui</span></div>
-      </div>
-    </div>
-    <div class="carousel-nav">
-      <button class="nav-btn" id="prevBtn">‹</button>
-      <div class="dots" id="dots"></div>
-      <button class="nav-btn" id="nextBtn">›</button>
+  <div class="vstrip-outer" id="vstrip">
+    <div class="vstrip-track" id="vstripTrack">
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/KnynyLHd_720p.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/5.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/4.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/3.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/2.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/1.mp4" type="video/mp4"></video></div>
+      <!-- clones para loop infinito -->
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/KnynyLHd_720p.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/5.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/4.mp4" type="video/mp4"></video></div>
     </div>
   </div>
 </section>
@@ -637,34 +613,43 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 </footer>
 
 <script>
-const track = document.getElementById('carouselTrack');
-const slides = track.querySelectorAll('.carousel-slide');
-const dotsEl = document.getElementById('dots');
-let cur = 0;
+// ── carrossel automático de vídeos ──
+(function() {
+  const track = document.getElementById('vstripTrack');
+  const outer = document.getElementById('vstrip');
+  if (!track || !outer) return;
 
-slides.forEach((_, i) => {
-  const d = document.createElement('div');
-  d.className = 'dot' + (i === 0 ? ' active' : '');
-  d.onclick = () => goTo(i);
-  dotsEl.appendChild(d);
-});
+  const cardW = () => track.querySelector('.vstrip-card').offsetWidth + 10;
+  const totalCards = 6; // originais (sem clones)
+  let pos = 0;
+  let dragging = false;
+  let startX = 0;
+  let startPos = 0;
+  let animId;
+  const speed = 0.4; // px por frame — lento
 
-function goTo(n) {
-  cur = (n + slides.length) % slides.length;
-  track.style.transform = `translateX(-${cur * 100}%)`;
-  dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-}
+  function autoScroll() {
+    if (!dragging) {
+      pos += speed;
+      const loopAt = cardW() * totalCards;
+      if (pos >= loopAt) pos -= loopAt;
+      track.style.transform = `translateX(-${pos}px)`;
+    }
+    animId = requestAnimationFrame(autoScroll);
+  }
 
-document.getElementById('prevBtn').onclick = () => goTo(cur - 1);
-document.getElementById('nextBtn').onclick = () => goTo(cur + 1);
+  // drag/swipe
+  outer.addEventListener('mousedown', e => { dragging = true; startX = e.clientX; startPos = pos; outer.style.cursor = 'grabbing'; });
+  window.addEventListener('mousemove', e => { if (!dragging) return; pos = startPos + (startX - e.clientX); });
+  window.addEventListener('mouseup', () => { dragging = false; outer.style.cursor = 'grab'; });
+  outer.addEventListener('touchstart', e => { dragging = true; startX = e.touches[0].clientX; startPos = pos; }, { passive: true });
+  outer.addEventListener('touchmove', e => { if (!dragging) return; pos = startPos + (startX - e.touches[0].clientX); }, { passive: true });
+  outer.addEventListener('touchend', () => { dragging = false; });
 
-let sx = 0;
-track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
-track.addEventListener('touchend', e => {
-  const diff = sx - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
-});
+  autoScroll();
+})();
 
+// ── FAQ ──
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-question').addEventListener('click', () => {
     const open = item.classList.contains('open');
@@ -673,6 +658,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
+// ── fade in ──
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
