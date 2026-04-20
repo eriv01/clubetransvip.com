@@ -251,10 +251,27 @@ section {
   overflow: hidden;
   position: relative;
   width: 100%;
-  cursor: grab;
+  cursor: default;
   user-select: none;
+  pointer-events: none;
 }
-.vstrip-outer:active { cursor: grabbing; }
+.vstrip-outer::before,
+.vstrip-outer::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 55px;
+  z-index: 2;
+  pointer-events: none;
+}
+.vstrip-outer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+}
+.vstrip-outer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
+}
 
 .vstrip-track {
   display: flex;
@@ -620,13 +637,13 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 </footer>
 
 <script>
-// ── lazy load + carrossel automático ──
+// ── lazy load + carrossel automático sem interação ──
 (function() {
   const track = document.getElementById('vstripTrack');
   const outer = document.getElementById('vstrip');
   if (!track || !outer) return;
 
-  // lazy load: só injeta src quando o card está perto da tela
+  // lazy load
   const lazyObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -642,32 +659,19 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 
   track.querySelectorAll('.vstrip-card').forEach(card => lazyObs.observe(card));
 
-  // scroll automático
-  const TOTAL_REAL = 13; // cards originais (sem clones)
+  // scroll automático — sem pausa, sem drag
+  const TOTAL_REAL = 13;
   const GAP = 10;
   const cardW = () => track.querySelector('.vstrip-card').offsetWidth + GAP;
   let pos = 0;
-  let dragging = false;
-  let startX = 0;
-  let startPos = 0;
-  const speed = 0.4;
 
   function autoScroll() {
-    if (!dragging) {
-      pos += speed;
-      const loopAt = cardW() * TOTAL_REAL;
-      if (pos >= loopAt) pos -= loopAt;
-      track.style.transform = `translateX(-${pos}px)`;
-    }
+    pos += 0.4;
+    const loopAt = cardW() * TOTAL_REAL;
+    if (pos >= loopAt) pos -= loopAt;
+    track.style.transform = `translateX(-${pos}px)`;
     requestAnimationFrame(autoScroll);
   }
-
-  outer.addEventListener('mousedown', e => { dragging = true; startX = e.clientX; startPos = pos; outer.style.cursor = 'grabbing'; });
-  window.addEventListener('mousemove', e => { if (!dragging) return; pos = startPos + (startX - e.clientX); });
-  window.addEventListener('mouseup', () => { dragging = false; outer.style.cursor = 'grab'; });
-  outer.addEventListener('touchstart', e => { dragging = true; startX = e.touches[0].clientX; startPos = pos; }, { passive: true });
-  outer.addEventListener('touchmove', e => { if (!dragging) return; pos = startPos + (startX - e.touches[0].clientX); }, { passive: true });
-  outer.addEventListener('touchend', () => { dragging = false; });
 
   autoScroll();
 })();
