@@ -497,16 +497,23 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
   <p class="section-label">🎬 Prévia exclusiva</p>
   <div class="vstrip-outer" id="vstrip">
     <div class="vstrip-track" id="vstripTrack">
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/KnynyLHd_720p.mp4" type="video/mp4"></video></div>
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/5.mp4" type="video/mp4"></video></div>
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/4.mp4" type="video/mp4"></video></div>
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/3.mp4" type="video/mp4"></video></div>
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/2.mp4" type="video/mp4"></video></div>
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/1.mp4" type="video/mp4"></video></div>
-      <!-- clones para loop infinito -->
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/KnynyLHd_720p.mp4" type="video/mp4"></video></div>
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/5.mp4" type="video/mp4"></video></div>
-      <div class="vstrip-card"><video autoplay muted loop playsinline preload="none"><source src="https://metodotripe.shop/wp-content/uploads/2026/04/4.mp4" type="video/mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/KnynyLHd_720p.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/5.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/4.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/3.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/2.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/1.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/Melhores-Gifs-Transexuais-Orgasmo-pagina-2.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/Melhores-Gifs-Transexuais-Orgasmo-pagina-2-2.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/Melhores-Gifs-Transexuais-Orgasmo-9.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/Melhores-Gifs-Transexuais-Orgasmo-8.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/Melhores-Gifs-Transexuais-Orgasmo-6.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/Melhores-Gifs-Transexuais-Orgasmo-5.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/Melhores-Gifs-Transexuais-Orgasmo-4.mp4"></video></div>
+      <!-- clones primeiros 3 para fechar o loop -->
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/KnynyLHd_720p.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/5.mp4"></video></div>
+      <div class="vstrip-card"><video muted loop playsinline preload="none" data-src="https://metodotripe.shop/wp-content/uploads/2026/04/4.mp4"></video></div>
     </div>
   </div>
 </section>
@@ -613,32 +620,48 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 </footer>
 
 <script>
-// ── carrossel automático de vídeos ──
+// ── lazy load + carrossel automático ──
 (function() {
   const track = document.getElementById('vstripTrack');
   const outer = document.getElementById('vstrip');
   if (!track || !outer) return;
 
-  const cardW = () => track.querySelector('.vstrip-card').offsetWidth + 10;
-  const totalCards = 6; // originais (sem clones)
+  // lazy load: só injeta src quando o card está perto da tela
+  const lazyObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const vid = entry.target.querySelector('video[data-src]');
+      if (vid && !vid.src) {
+        vid.src = vid.dataset.src;
+        vid.load();
+        vid.play().catch(() => {});
+      }
+      lazyObs.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 200px 0px 200px', threshold: 0 });
+
+  track.querySelectorAll('.vstrip-card').forEach(card => lazyObs.observe(card));
+
+  // scroll automático
+  const TOTAL_REAL = 13; // cards originais (sem clones)
+  const GAP = 10;
+  const cardW = () => track.querySelector('.vstrip-card').offsetWidth + GAP;
   let pos = 0;
   let dragging = false;
   let startX = 0;
   let startPos = 0;
-  let animId;
-  const speed = 0.4; // px por frame — lento
+  const speed = 0.4;
 
   function autoScroll() {
     if (!dragging) {
       pos += speed;
-      const loopAt = cardW() * totalCards;
+      const loopAt = cardW() * TOTAL_REAL;
       if (pos >= loopAt) pos -= loopAt;
       track.style.transform = `translateX(-${pos}px)`;
     }
-    animId = requestAnimationFrame(autoScroll);
+    requestAnimationFrame(autoScroll);
   }
 
-  // drag/swipe
   outer.addEventListener('mousedown', e => { dragging = true; startX = e.clientX; startPos = pos; outer.style.cursor = 'grabbing'; });
   window.addEventListener('mousemove', e => { if (!dragging) return; pos = startPos + (startX - e.clientX); });
   window.addEventListener('mouseup', () => { dragging = false; outer.style.cursor = 'grab'; });
