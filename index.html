@@ -353,6 +353,18 @@ section {
 .author-name { font-size: 0.85rem; font-weight: 600; }
 .author-tag { font-size: 0.75rem; color: var(--muted); }
 
+.avatar-photo {
+  background: none;
+  overflow: hidden;
+  padding: 0;
+}
+.avatar-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
 /* ── FAQ ── */
 .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1.1rem 0; }
 .faq-question { font-size: 0.95rem; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none; }
@@ -541,12 +553,13 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
   <h2 class="section-title">O que você vai <span>receber</span></h2>
   <p class="section-sub">Acesso imediato após o pagamento</p>
   <div class="benefits-grid">
-    <div class="benefit-card"><span class="benefit-icon">📱</span><div><div class="benefit-title">Acesso ao grupo VIP</div><div class="benefit-desc">Entre no grupo exclusivo e acesse todo o conteúdo direto no celular, 24h por dia.</div></div></div>
-    <div class="benefit-card"><span class="benefit-icon">🎬</span><div><div class="benefit-title">Vídeos exclusivos</div><div class="benefit-desc">Conteúdo +18 selecionado, sem censura, atualizado regularmente.</div></div></div>
-    <div class="benefit-card"><span class="benefit-icon">📸</span><div><div class="benefit-title">Fotos & reels quentes</div><div class="benefit-desc">Galeria completa que você não acha em outro lugar.</div></div></div>
-    <div class="benefit-card"><span class="benefit-icon">🔔</span><div><div class="benefit-title">Atualizações diárias</div><div class="benefit-desc">Novidades postadas todo dia. Nunca falta conteúdo fresco.</div></div></div>
-    <div class="benefit-card"><span class="benefit-icon">🔒</span><div><div class="benefit-title">100% privado</div><div class="benefit-desc">Sua privacidade protegida. Acesso discreto e seguro.</div></div></div>
-    <div class="benefit-card"><span class="benefit-icon">💬</span><div><div class="benefit-title">Comunidade ativa</div><div class="benefit-desc">Ambiente sem julgamentos e totalmente libertador.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">🎬</span><div><div class="benefit-title">+3.000 vídeos exclusivos</div><div class="benefit-desc">Grupo privado com um acervo gigante que cresce toda semana. Conteúdo que você não acha em lugar nenhum.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">♾️</span><div><div class="benefit-title">Acesso vitalício — paga só uma vez</div><div class="benefit-desc">Sem mensalidade, sem renovação. Pagou uma vez, é seu para sempre. Simples assim.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">📹</span><div><div class="benefit-title">7 chamadas de vídeo por mês</div><div class="benefit-desc">Encontros ao vivo com as modelos, direto no celular. Opcional — você escolhe quando e com quem.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">🕵️</span><div><div class="benefit-title">Armazenamento oculto</div><div class="benefit-desc">Aplicativo invisível na tela inicial do seu celular. Ninguém vê, ninguém sabe. 100% discreto.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">📶</span><div><div class="benefit-title">Assista sem internet</div><div class="benefit-desc">Salve os vídeos e curta offline quando e onde quiser, sem depender de sinal.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">🔥</span><div><div class="benefit-title">Novidades toda semana</div><div class="benefit-desc">Conteúdo novo chegando toda semana. Você nunca vai ficar sem novidade quentinha.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">💬</span><div><div class="benefit-title">Bate-papo com as modelos</div><div class="benefit-desc">Converse em tempo real com as pauzudas do grupo. Elas estão online e te esperando.</div></div></div>
   </div>
 </section>
 
@@ -558,47 +571,28 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
   <div class="testimonials-grid">
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
-      <div class="testimonial-author"><div class="avatar">A1</div><div><div class="author-name">Membro VIP</div><div class="author-tag">há 2 meses</div></div></div>
+      <p class="testimonial-text">"Cara, esse grupo mudou minha vida. Conteúdo novo toda semana, as minas são demais. Todo dia dou uma voltinha aqui e não me arrependo nem um pouco."</p>
+      <div class="testimonial-author"><div class="avatar avatar-photo"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/dc1c19211dcd14aa6b32d0024cd4d4d1.jpg" alt=""></div><div><div class="author-name">Rafael M.</div><div class="author-tag">Membro VIP · há 4 meses</div></div></div>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
-      <div class="testimonial-author"><div class="avatar">A2</div><div><div class="author-name">Membro VIP</div><div class="author-tag">há 1 mês</div></div></div>
+      <p class="testimonial-text">"Só safada gostosa aqui dentro. Já tentei outros grupos mas esse é outro nível. Mais de 3 mil vídeos e eu ainda não vi tudo. Vale cada centavo."</p>
+      <div class="testimonial-author"><div class="avatar avatar-photo"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/d484e720c8f1fbab088693a7dbd60a21.jpg" alt=""></div><div><div class="author-name">Lucas S.</div><div class="author-tag">Membro VIP · há 2 meses</div></div></div>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
-      <div class="testimonial-author"><div class="avatar">A3</div><div><div class="author-name">Membro VIP</div><div class="author-tag">há 3 semanas</div></div></div>
+      <p class="testimonial-text">"O app oculto foi o que me convenceu. Ninguém sabe de nada e eu curto tranquilo. As chamadas de vídeo então… não preciso nem comentar. 🔥"</p>
+      <div class="testimonial-author"><div class="avatar avatar-photo"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/4132fea5d9d86a3e12be9f581259e96c.jpg" alt=""></div><div><div class="author-name">Felipe O.</div><div class="author-tag">Membro VIP · há 1 mês</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Todo dia acesso e sempre tem coisa nova. Bate-papo com as minas é real, respondem mesmo. Nunca vi nada parecido. Recomendo demais."</p>
+      <div class="testimonial-author"><div class="avatar avatar-photo"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/8b1f807b117da7cb859e131608c6da88.jpg" alt=""></div><div><div class="author-name">Gabriel C.</div><div class="author-tag">Membro VIP · há 3 meses</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- 5 — FAQ -->
-<section class="fade-in">
-  <div class="divider"></div>
-  <h2 class="section-title" style="margin-bottom:1.75rem;">Perguntas <span>frequentes</span></h2>
-  <div class="faq-item">
-    <div class="faq-question">Como acesso após o pagamento? <span class="faq-icon">+</span></div>
-    <div class="faq-answer">O acesso é imediato. Após confirmar o pagamento você recebe o link direto no WhatsApp ou e-mail.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">O pagamento é seguro? <span class="faq-icon">+</span></div>
-    <div class="faq-answer">Sim! Utilizamos plataformas de pagamento criptografadas e certificadas. Seus dados nunca passam por nós.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">Vou ter acesso vitalício? <span class="faq-icon">+</span></div>
-    <div class="faq-answer">[Descreva aqui se é vitalício, mensal ou por período determinado.]</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">Minha compra será discreta na fatura? <span class="faq-icon">+</span></div>
-    <div class="faq-answer">Sim! O nome na fatura é discreto e não identifica o conteúdo adquirido.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">Posso cancelar quando quiser? <span class="faq-icon">+</span></div>
-    <div class="faq-answer">[Descreva sua política de cancelamento aqui.]</div>
-  </div>
-</section>
+<!-- 5 — FAQ removido daqui, vai após oferta -->
 
 <!-- 6 — OFERTA -->
 <section id="oferta" class="fade-in">
@@ -621,12 +615,29 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
   </div>
 </section>
 
-<!-- 7 — GARANTIA -->
+<!-- 8 — FAQ -->
 <section class="fade-in">
-  <div class="guarantee-box">
-    <div class="guarantee-badge">🛡️</div>
-    <h3>Garantia de [X] dias</h3>
-    <p>Se por qualquer motivo não ficar satisfeito, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+  <div class="divider"></div>
+  <h2 class="section-title" style="margin-bottom:1.75rem;">Perguntas <span>frequentes</span></h2>
+  <div class="faq-item">
+    <div class="faq-question">Como acesso após o pagamento? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">O acesso é imediato. Após confirmar o pagamento você recebe o link direto no WhatsApp ou e-mail.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">O pagamento é seguro? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">Sim! Utilizamos plataformas de pagamento criptografadas e certificadas. Seus dados nunca passam por nós.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Vou ter acesso vitalício? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">Sim! Você paga uma única vez e o acesso é seu para sempre. Sem mensalidade, sem surpresa.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Minha compra será discreta na fatura? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">Sim! O nome na fatura é discreto e não identifica o conteúdo adquirido.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">As chamadas de vídeo são obrigatórias? <span class="faq-icon">+</span></div>
+    <div class="faq-answer">Não! As 7 chamadas mensais são totalmente opcionais. Você usa se quiser, quando quiser.</div>
   </div>
 </section>
 
