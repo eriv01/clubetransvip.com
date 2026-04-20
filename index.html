@@ -397,7 +397,85 @@ section {
 footer { padding: 2rem 1.25rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; color: rgba(255,255,255,0.22); }
 footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 
-/* ── FADE IN ── */
+/* ── LOGO HERO ── */
+.hero-logo {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.hero-logo-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.logo-club {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
+
+.logo-badge18 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pink);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(0.65rem, 2.5vw, 0.8rem);
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 14px rgba(255,45,107,0.6);
+}
+
+.hero-logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 10vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  background: linear-gradient(135deg, #fff 0%, #FFB3CC 50%, var(--purple-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+.logo-trans {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 10vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--purple-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 0px;
+}
+
+.hero-logo-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.65rem, 2.5vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  color: var(--pink);
+  margin-top: 6px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* ── LOGO HERO ── */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .fade-in.visible { opacity: 1; transform: none; }
 </style>
@@ -417,6 +495,14 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
   <div class="hero-img hero-img-7"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/photo_2026-04-20_00-33-25.jpg" alt=""></div>
   <div class="hero-img hero-img-8"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/photo_2026-04-20_00-34-34.jpg" alt=""></div>
   <div class="hero-img hero-img-9"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/travestis.jpg" alt=""></div>
+
+  <div class="hero-logo">
+    <div class="hero-logo-top">
+      <span class="logo-club">CLUB</span><span class="logo-badge18">+18</span>
+    </div>
+    <div class="hero-logo-main">MUNDINHO<br><span class="logo-trans">TRANS</span></div>
+    <div class="hero-logo-sub">✦ VIP ✦</div>
+  </div>
 
   <div class="badge">🔞 +18 · Conteúdo exclusivo</div>
   <h1>O lugar onde o desejo não tem limite</h1>
