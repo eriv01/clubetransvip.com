@@ -262,6 +262,208 @@ section {
   flex-shrink: 0;
 }
 
+/* ── FAKE ÁREA DE MEMBROS ── */
+.members-mockup {
+  margin: 2rem 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,45,107,0.3);
+  box-shadow: 0 0 40px rgba(255,45,107,0.12), 0 20px 60px rgba(0,0,0,0.6);
+  background: #0e0012;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* barra de status fake */
+.mock-statusbar {
+  background: #0e0012;
+  padding: 8px 14px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.mock-statusbar-icons { display: flex; gap: 5px; align-items: center; }
+.mock-signal { font-size: 8px; }
+
+/* header do app */
+.mock-header {
+  background: rgba(255,45,107,0.08);
+  border-bottom: 1px solid rgba(255,45,107,0.15);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mock-header-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff, var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.mock-header-badge {
+  background: var(--pink);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+.mock-header-notif {
+  font-size: 1rem;
+  position: relative;
+}
+.mock-notif-dot {
+  position: absolute;
+  top: -2px; right: -2px;
+  width: 7px; height: 7px;
+  background: var(--pink);
+  border-radius: 50%;
+  border: 1.5px solid #0e0012;
+}
+
+/* tabs */
+.mock-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: #0e0012;
+  padding: 0 14px;
+  gap: 18px;
+}
+.mock-tab {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 8px 0;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+.mock-tab.active {
+  color: var(--pink);
+  border-bottom-color: var(--pink);
+}
+
+/* grid de conteúdo */
+.mock-body { padding: 10px 10px 4px; background: #0e0012; }
+
+.mock-featured {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  aspect-ratio: 16/9;
+  background: #1a0018;
+}
+.mock-featured img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(0.85);
+}
+.mock-featured-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 10px 8px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.mock-featured-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--pink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.mock-featured-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+.mock-play-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--pink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  box-shadow: 0 0 14px rgba(255,45,107,0.6);
+  flex-shrink: 0;
+}
+
+.mock-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.mock-grid-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 9/13;
+  background: #1a0018;
+}
+.mock-grid-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(0.8);
+}
+.mock-grid-lock {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  backdrop-filter: blur(2px);
+}
+.mock-grid-name {
+  position: absolute;
+  bottom: 4px; left: 0; right: 0;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+}
+
+/* counter bar */
+.mock-counter {
+  padding: 8px 12px;
+  background: rgba(255,45,107,0.06);
+  border-top: 1px solid rgba(255,45,107,0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.mock-stat { text-align: center; }
+.mock-stat-num { font-size: 11px; font-weight: 700; color: var(--pink); font-family: 'Playfair Display', serif; }
+.mock-stat-label { font-size: 8px; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+
+/* bottom nav */
+.mock-bottomnav {
+  background: #0e0012;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0 10px;
+}
+.mock-nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 16px; }
+.mock-nav-label { font-size: 8px; color: rgba(255,255,255,0.3); }
+.mock-nav-item.active .mock-nav-label { color: var(--pink); }
+
 /* ── BENEFÍCIOS ── */
 .benefits-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 2rem; }
 .benefit-card { background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,45,107,0.04)); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; display: flex; align-items: flex-start; gap: 1rem; }
@@ -493,6 +695,90 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
   <div class="divider"></div>
   <h2 class="section-title">O que você vai <span>receber</span></h2>
   <p class="section-sub">Acesso imediato após o pagamento</p>
+
+  <!-- FAKE ÁREA DE MEMBROS -->
+  <div class="members-mockup">
+    <!-- status bar -->
+    <div class="mock-statusbar">
+      <span>23:41</span>
+      <div class="mock-statusbar-icons">
+        <span class="mock-signal">▲▲▲</span>
+        <span>WiFi</span>
+        <span>🔋</span>
+      </div>
+    </div>
+    <!-- header -->
+    <div class="mock-header">
+      <div>
+        <div class="mock-header-logo">Mundinho Trans</div>
+      </div>
+      <span class="mock-header-badge">VIP</span>
+      <div class="mock-header-notif">🔔<div class="mock-notif-dot"></div></div>
+    </div>
+    <!-- tabs -->
+    <div class="mock-tabs">
+      <div class="mock-tab active">Em destaque</div>
+      <div class="mock-tab">Novidades</div>
+      <div class="mock-tab">Ao vivo</div>
+    </div>
+    <!-- body -->
+    <div class="mock-body">
+      <!-- featured -->
+      <div class="mock-featured">
+        <img src="https://metodotripe.shop/wp-content/uploads/2026/04/INnLRp0X.jpeg" alt="">
+        <div class="mock-featured-overlay">
+          <div>
+            <div class="mock-featured-label">🔥 Em destaque</div>
+            <div class="mock-featured-name">Valentina S.</div>
+          </div>
+          <div class="mock-play-btn">▶</div>
+        </div>
+      </div>
+      <!-- grid -->
+      <div class="mock-grid">
+        <div class="mock-grid-item">
+          <img src="https://metodotripe.shop/wp-content/uploads/2026/04/242350.jpg" alt="">
+          <div class="mock-grid-name">Melissa T.</div>
+        </div>
+        <div class="mock-grid-item">
+          <img src="https://metodotripe.shop/wp-content/uploads/2026/04/242351.jpg" alt="">
+          <div class="mock-grid-name">Bruna K.</div>
+        </div>
+        <div class="mock-grid-item">
+          <img src="https://metodotripe.shop/wp-content/uploads/2026/04/242356.jpg" alt="">
+          <div class="mock-grid-name">Yasmin R.</div>
+        </div>
+        <div class="mock-grid-item">
+          <img src="https://metodotripe.shop/wp-content/uploads/2026/04/photo_2026-04-20_00-33-25.jpg" alt="">
+          <div class="mock-grid-name">Camila X.</div>
+        </div>
+        <div class="mock-grid-item">
+          <img src="https://metodotripe.shop/wp-content/uploads/2026/04/photo_2026-04-20_00-34-34.jpg" alt="">
+          <div class="mock-grid-name">Sofia A.</div>
+        </div>
+        <div class="mock-grid-item">
+          <img src="https://metodotripe.shop/wp-content/uploads/2026/04/travestis.jpg" alt="">
+          <div class="mock-grid-lock">🔒</div>
+          <div class="mock-grid-name">+247 vídeos</div>
+        </div>
+      </div>
+    </div>
+    <!-- counter -->
+    <div class="mock-counter">
+      <div class="mock-stat"><div class="mock-stat-num">3.247</div><div class="mock-stat-label">vídeos</div></div>
+      <div class="mock-stat"><div class="mock-stat-num">89</div><div class="mock-stat-label">online agora</div></div>
+      <div class="mock-stat"><div class="mock-stat-num">∞</div><div class="mock-stat-label">acesso</div></div>
+    </div>
+    <!-- bottom nav -->
+    <div class="mock-bottomnav">
+      <div class="mock-nav-item active"><span>🏠</span><span class="mock-nav-label" style="color:var(--pink)">Início</span></div>
+      <div class="mock-nav-item"><span>🔍</span><span class="mock-nav-label">Buscar</span></div>
+      <div class="mock-nav-item"><span>❤️</span><span class="mock-nav-label">Favoritos</span></div>
+      <div class="mock-nav-item"><span>💬</span><span class="mock-nav-label">Chat</span></div>
+      <div class="mock-nav-item"><span>👤</span><span class="mock-nav-label">Perfil</span></div>
+    </div>
+  </div>
+
   <div class="benefits-grid">
     <div class="benefit-card"><span class="benefit-icon">🎬</span><div><div class="benefit-title">+3.000 vídeos exclusivos</div><div class="benefit-desc">Grupo privado com um acervo gigante que cresce toda semana. Conteúdo que você não acha em lugar nenhum.</div></div></div>
     <div class="benefit-card"><span class="benefit-icon">♾️</span><div><div class="benefit-title">Acesso vitalício — paga só uma vez</div><div class="benefit-desc">Sem mensalidade, sem renovação. Pagou uma vez, é seu para sempre. Simples assim.</div></div></div>
