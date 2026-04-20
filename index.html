@@ -89,77 +89,82 @@ section {
     radial-gradient(ellipse 70% 40% at 85% 90%, rgba(255,45,107,0.22) 0%, transparent 60%);
 }
 
-/* imagens sem borda, sem border-radius, com blur leve e bordas dissolvidas via mask */
+/* wrapper de cada imagem — controla posição e rotação */
 .hero-img {
   position: absolute;
-  background-size: cover;
-  background-position: center top;
-  display: block;
   pointer-events: none;
   z-index: 0;
   user-select: none;
-  border-radius: 0;
-  border: none;
-  filter: blur(0.8px);
-  -webkit-mask-image: radial-gradient(ellipse 75% 80% at center, black 35%, transparent 100%);
-  mask-image: radial-gradient(ellipse 75% 80% at center, black 35%, transparent 100%);
+  /* bordas dissolvidas via overflow+pseudo sem matar a imagem toda */
+  overflow: hidden;
+}
+
+/* a imagem real dentro do wrapper */
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: blur(0.6px);
+  /* dissolve só as bordas externas */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%),
+                      linear-gradient(to right,  transparent 0%, black 18%, black 82%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%),
+              linear-gradient(to right,  transparent 0%, black 18%, black 82%, transparent 100%);
+  mask-composite: intersect;
 }
 
 /* esquerda topo */
 .hero-img-1 {
-  background-image: url('https://metodotripe.shop/wp-content/uploads/2026/04/242350.jpg');
   width: 33vw; height: 48vw;
   max-width: 145px; max-height: 210px;
   top: 2%; left: -1%;
   transform: rotate(-7deg);
-  opacity: 0.9;
+  opacity: 0.92;
 }
 /* esquerda base */
 .hero-img-4 {
-  background-image: url('https://metodotripe.shop/wp-content/uploads/2026/04/13677692-t6-enh.webp');
   width: 31vw; height: 44vw;
   max-width: 132px; max-height: 188px;
-  bottom: 4%; left: 0%;
+  bottom: 3%; left: 0%;
   transform: rotate(5deg);
-  opacity: 0.82;
+  opacity: 0.85;
 }
 
 /* direita topo */
 .hero-img-2 {
-  background-image: url('https://metodotripe.shop/wp-content/uploads/2026/04/242351.jpg');
   width: 33vw; height: 48vw;
   max-width: 145px; max-height: 210px;
   top: 2%; right: -1%;
   transform: rotate(7deg);
-  opacity: 0.9;
+  opacity: 0.92;
 }
 /* direita base */
 .hero-img-5 {
-  background-image: url('https://metodotripe.shop/wp-content/uploads/2026/04/693322_2.jpg');
   width: 31vw; height: 44vw;
   max-width: 132px; max-height: 188px;
-  bottom: 4%; right: 0%;
+  bottom: 3%; right: 0%;
   transform: rotate(-5deg);
-  opacity: 0.82;
+  opacity: 0.85;
 }
 
-/* centro-esquerda meio */
+/* centro esquerda */
 .hero-img-3 {
-  background-image: url('https://metodotripe.shop/wp-content/uploads/2026/04/242356.jpg');
-  width: 28vw; height: 40vw;
-  max-width: 118px; max-height: 170px;
+  width: 27vw; height: 38vw;
+  max-width: 115px; max-height: 162px;
   top: 50%; left: 50%;
-  transform: translate(-120%, -50%) rotate(-3deg);
-  opacity: 0.72;
+  transform: translate(-125%, -50%) rotate(-3deg);
+  opacity: 0.7;
 }
-/* centro-direita meio */
+/* centro direita */
 .hero-img-6 {
-  background-image: url('https://metodotripe.shop/wp-content/uploads/2026/04/57395064_044_2848.jpg');
-  width: 28vw; height: 40vw;
-  max-width: 118px; max-height: 170px;
+  width: 27vw; height: 38vw;
+  max-width: 115px; max-height: 162px;
   top: 50%; left: 50%;
-  transform: translate(20%, -50%) rotate(3deg);
-  opacity: 0.72;
+  transform: translate(25%, -50%) rotate(3deg);
+  opacity: 0.7;
 }
 
 .hero > :not(.hero-img) { position: relative; z-index: 1; }
@@ -261,11 +266,7 @@ section {
   color: rgba(255,255,255,0.2);
 }
 .placeholder span:first-child { font-size: 2.5rem; }
-.placeholder-text {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
+.placeholder-text { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
 .carousel-nav {
   display: flex;
@@ -299,12 +300,7 @@ section {
 .dot.active { background: var(--pink); transform: scale(1.35); }
 
 /* ── BENEFÍCIOS ── */
-.benefits-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 2rem;
-}
+.benefits-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 2rem; }
 
 .benefit-card {
   background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,45,107,0.04));
@@ -321,16 +317,8 @@ section {
 .benefit-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
 
 /* ── DEPOIMENTOS ── */
-.testimonials-section {
-  background: linear-gradient(180deg, transparent, rgba(123,47,190,0.07), transparent);
-}
-
-.testimonials-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 2rem;
-}
+.testimonials-section { background: linear-gradient(180deg, transparent, rgba(123,47,190,0.07), transparent); }
+.testimonials-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 2rem; }
 
 .testimonial-card {
   background: rgba(255,255,255,0.03);
@@ -340,13 +328,7 @@ section {
 }
 
 .stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 0.6rem; letter-spacing: 2px; }
-.testimonial-text {
-  font-size: 0.875rem;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.65;
-  margin-bottom: 1rem;
-  font-style: italic;
-}
+.testimonial-text { font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin-bottom: 1rem; font-style: italic; }
 .testimonial-author { display: flex; align-items: center; gap: 10px; }
 .avatar {
   width: 34px; height: 34px;
@@ -360,24 +342,10 @@ section {
 
 /* ── FAQ ── */
 .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1.1rem 0; }
-.faq-question {
-  font-size: 0.95rem; font-weight: 500; cursor: pointer;
-  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-  user-select: none;
-}
-.faq-icon {
-  width: 22px; height: 22px; border-radius: 50%;
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; flex-shrink: 0; color: var(--pink);
-  transition: transform 0.3s;
-}
+.faq-question { font-size: 0.95rem; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none; }
+.faq-icon { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: var(--pink); transition: transform 0.3s; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-answer {
-  font-size: 0.85rem; color: var(--muted); line-height: 1.7;
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.2s;
-}
+.faq-answer { font-size: 0.85rem; color: var(--muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s; }
 .faq-item.open .faq-answer { max-height: 300px; padding-top: 0.7rem; }
 
 /* ── OFERTA ── */
@@ -391,64 +359,27 @@ section {
   text-align: center;
 }
 
-.offer-tag {
-  display: inline-block;
-  background: var(--pink); color: #fff;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 5px 14px; border-radius: 100px; margin-bottom: 1.25rem;
-}
-
-.offer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem; font-weight: 700; margin-bottom: 0.4rem;
-}
-
+.offer-tag { display: inline-block; background: var(--pink); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 1.25rem; }
+.offer-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 0.4rem; }
 .offer-desc { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.75rem; }
-
 .price-old { font-size: 0.9rem; color: rgba(255,255,255,0.3); text-decoration: line-through; margin-bottom: 4px; }
-.price-main {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.8rem; font-weight: 900; line-height: 1; margin-bottom: 6px;
-}
+.price-main { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 900; line-height: 1; margin-bottom: 6px; }
 .price-main sup { font-size: 1.4rem; color: var(--pink); vertical-align: super; }
 .price-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.75rem; }
 
-.checklist {
-  list-style: none; text-align: left;
-  margin-bottom: 1.75rem;
-  display: flex; flex-direction: column; gap: 10px;
-}
+.checklist { list-style: none; text-align: left; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: 10px; }
 .checklist li { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: rgba(255,255,255,0.85); }
-.check-icon {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: rgba(255,45,107,0.15); border: 1px solid rgba(255,45,107,0.4);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.65rem; flex-shrink: 0; color: var(--pink);
-}
-
-.secure-note {
-  margin-top: 1.25rem; font-size: 0.75rem; color: rgba(255,255,255,0.3);
-  display: flex; align-items: center; justify-content: center; gap: 5px;
-}
+.check-icon { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,45,107,0.15); border: 1px solid rgba(255,45,107,0.4); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0; color: var(--pink); }
+.secure-note { margin-top: 1.25rem; font-size: 0.75rem; color: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; gap: 5px; }
 
 /* ── GARANTIA ── */
-.guarantee-box {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 18px; padding: 2rem 1.25rem;
-  display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;
-}
+.guarantee-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; padding: 2rem 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
 .guarantee-badge { font-size: 3rem; }
 .guarantee-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
 .guarantee-box p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
 
 /* ── FOOTER ── */
-footer {
-  padding: 2rem 1.25rem; text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  font-size: 0.75rem; color: rgba(255,255,255,0.22);
-}
+footer { padding: 2rem 1.25rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; color: rgba(255,255,255,0.22); }
 footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 
 /* ── FADE IN ── */
@@ -460,12 +391,12 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
 
 <!-- 1 — HERO -->
 <section class="hero">
-  <div class="hero-img hero-img-1"></div>
-  <div class="hero-img hero-img-2"></div>
-  <div class="hero-img hero-img-3"></div>
-  <div class="hero-img hero-img-4"></div>
-  <div class="hero-img hero-img-5"></div>
-  <div class="hero-img hero-img-6"></div>
+  <div class="hero-img hero-img-1"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/242350.jpg" alt=""></div>
+  <div class="hero-img hero-img-2"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/242351.jpg" alt=""></div>
+  <div class="hero-img hero-img-3"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/242356.jpg" alt=""></div>
+  <div class="hero-img hero-img-4"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/13677692-t6-enh.webp" alt=""></div>
+  <div class="hero-img hero-img-5"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/693322_2.jpg" alt=""></div>
+  <div class="hero-img hero-img-6"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/57395064_044_2848.jpg" alt=""></div>
 
   <div class="badge">🔞 +18 · Conteúdo exclusivo</div>
   <h1>O lugar onde o desejo não tem limite</h1>
@@ -484,16 +415,10 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
         </video>
       </div>
       <div class="carousel-slide">
-        <div class="placeholder">
-          <span>🎥</span>
-          <span class="placeholder-text">Vídeo 2 — substitua aqui</span>
-        </div>
+        <div class="placeholder"><span>🎥</span><span class="placeholder-text">Vídeo 2 — substitua aqui</span></div>
       </div>
       <div class="carousel-slide">
-        <div class="placeholder">
-          <span>🎥</span>
-          <span class="placeholder-text">Vídeo 3 — substitua aqui</span>
-        </div>
+        <div class="placeholder"><span>🎥</span><span class="placeholder-text">Vídeo 3 — substitua aqui</span></div>
       </div>
     </div>
     <div class="carousel-nav">
@@ -510,30 +435,12 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
   <h2 class="section-title">O que você vai <span>receber</span></h2>
   <p class="section-sub">Acesso imediato após o pagamento</p>
   <div class="benefits-grid">
-    <div class="benefit-card">
-      <span class="benefit-icon">📱</span>
-      <div><div class="benefit-title">Acesso ao grupo VIP</div><div class="benefit-desc">Entre no grupo exclusivo e acesse todo o conteúdo direto no celular, 24h por dia.</div></div>
-    </div>
-    <div class="benefit-card">
-      <span class="benefit-icon">🎬</span>
-      <div><div class="benefit-title">Vídeos exclusivos</div><div class="benefit-desc">Conteúdo +18 selecionado, sem censura, atualizado regularmente.</div></div>
-    </div>
-    <div class="benefit-card">
-      <span class="benefit-icon">📸</span>
-      <div><div class="benefit-title">Fotos & reels quentes</div><div class="benefit-desc">Galeria completa que você não acha em outro lugar.</div></div>
-    </div>
-    <div class="benefit-card">
-      <span class="benefit-icon">🔔</span>
-      <div><div class="benefit-title">Atualizações diárias</div><div class="benefit-desc">Novidades postadas todo dia. Nunca falta conteúdo fresco.</div></div>
-    </div>
-    <div class="benefit-card">
-      <span class="benefit-icon">🔒</span>
-      <div><div class="benefit-title">100% privado</div><div class="benefit-desc">Sua privacidade protegida. Acesso discreto e seguro.</div></div>
-    </div>
-    <div class="benefit-card">
-      <span class="benefit-icon">💬</span>
-      <div><div class="benefit-title">Comunidade ativa</div><div class="benefit-desc">Ambiente sem julgamentos e totalmente libertador.</div></div>
-    </div>
+    <div class="benefit-card"><span class="benefit-icon">📱</span><div><div class="benefit-title">Acesso ao grupo VIP</div><div class="benefit-desc">Entre no grupo exclusivo e acesse todo o conteúdo direto no celular, 24h por dia.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">🎬</span><div><div class="benefit-title">Vídeos exclusivos</div><div class="benefit-desc">Conteúdo +18 selecionado, sem censura, atualizado regularmente.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">📸</span><div><div class="benefit-title">Fotos & reels quentes</div><div class="benefit-desc">Galeria completa que você não acha em outro lugar.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">🔔</span><div><div class="benefit-title">Atualizações diárias</div><div class="benefit-desc">Novidades postadas todo dia. Nunca falta conteúdo fresco.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">🔒</span><div><div class="benefit-title">100% privado</div><div class="benefit-desc">Sua privacidade protegida. Acesso discreto e seguro.</div></div></div>
+    <div class="benefit-card"><span class="benefit-icon">💬</span><div><div class="benefit-title">Comunidade ativa</div><div class="benefit-desc">Ambiente sem julgamentos e totalmente libertador.</div></div></div>
   </div>
 </section>
 
@@ -546,26 +453,17 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
-      <div class="testimonial-author">
-        <div class="avatar">A1</div>
-        <div><div class="author-name">Membro VIP</div><div class="author-tag">há 2 meses</div></div>
-      </div>
+      <div class="testimonial-author"><div class="avatar">A1</div><div><div class="author-name">Membro VIP</div><div class="author-tag">há 2 meses</div></div></div>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
-      <div class="testimonial-author">
-        <div class="avatar">A2</div>
-        <div><div class="author-name">Membro VIP</div><div class="author-tag">há 1 mês</div></div>
-      </div>
+      <div class="testimonial-author"><div class="avatar">A2</div><div><div class="author-name">Membro VIP</div><div class="author-tag">há 1 mês</div></div></div>
     </div>
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
       <p class="testimonial-text">"[Substitua pelo seu depoimento real aqui]"</p>
-      <div class="testimonial-author">
-        <div class="avatar">A3</div>
-        <div><div class="author-name">Membro VIP</div><div class="author-tag">há 3 semanas</div></div>
-      </div>
+      <div class="testimonial-author"><div class="avatar">A3</div><div><div class="author-name">Membro VIP</div><div class="author-tag">há 3 semanas</div></div></div>
     </div>
   </div>
 </section>
