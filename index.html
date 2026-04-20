@@ -82,7 +82,7 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5rem 1.25rem 3.5rem;
+  padding: 3rem 1.25rem 3.5rem;
   overflow: hidden;
   background:
     radial-gradient(ellipse 90% 55% at 50% 0%, rgba(123,47,190,0.4) 0%, transparent 70%),
@@ -223,6 +223,20 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.9));
+}
+
+.hero-text-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1.25rem 1.75rem;
+  border-radius: 20px;
+  background: radial-gradient(ellipse 120% 100% at 50% 50%, rgba(10,0,8,0.78) 0%, transparent 100%);
+  max-width: 360px;
+  margin-top: 1rem;
 }
 
 .hero p {
@@ -529,10 +543,10 @@ footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
     <div class="hero-logo-sub">✦ VIP ✦</div>
   </div>
 
-
-  <h1>As gostosas mais pauzudas do Brasil exclusivas no seu celular</h1>
-
-  <a href="#oferta" class="btn-cta">QUERO ENTRAR AGORA →</a>
+  <div class="hero-text-wrap">
+    <h1>As gostosas mais pauzudas do Brasil exclusivas no seu celular</h1>
+    <a href="#oferta" class="btn-cta">QUERO ENTRAR AGORA →</a>
+  </div>
 </section>
 
 <!-- 2 — VÍDEO -->
